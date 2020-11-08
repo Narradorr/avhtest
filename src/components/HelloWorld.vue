@@ -1,32 +1,39 @@
 <template>
-  <div class="structure page">
-    Hello
+  <div class="structure-page">
+    <div class="structure-page__header header">
+      <h1 class="header__title">Организационная структура</h1>
+    </div>
+    <Structure></Structure>
   </div>
 </template>
 
 <script>
+import Structure from "./Structure.vue";
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
-}
+  components: { Structure },
+  name: "HelloWorld",
+  props: {},
+  computed: {
+    msg() {
+      return this.$store.state.message;
+    },
+  },
+  mounted() {
+    console.log("hello");
+    console.log(this.axios);
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.structure-page__header {
+  background-color: #2c3e50;
+  padding: 1.5rem 2rem;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.header__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.4rem;
 }
 </style>
